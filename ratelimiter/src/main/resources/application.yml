@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+resilience4j:
+  ratelimiter:
+    instances:
+      myRateLimiter:
+        limitForPeriod: 5         #Max Requests
+        limitRefreshPeriod: 20s   #Time Window
+        timeoutDuration: 0        #Don't Wait
