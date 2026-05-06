@@ -2,6 +2,14 @@ server:
   port: 8083
 
 spring:
+  cloud:
+    inetutils:
+      ignored-interfaces:
+        - Hyper-V*
+        - Docker*
+        - vEthernet*
+      preferred-networks:
+        - 127.0.0.1
   application:
     name: PRODUCT-SERVICE
   datasource:
@@ -19,9 +27,9 @@ spring:
         format-sql: true
 
 eureka:
-  instances:
-    hostname: localhost
+  instance:
     prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka

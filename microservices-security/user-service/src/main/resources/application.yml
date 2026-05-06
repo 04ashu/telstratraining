@@ -27,7 +27,7 @@ spring:
         format-sql: true
 
 eureka:
-  instances:
+  instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
   client:
