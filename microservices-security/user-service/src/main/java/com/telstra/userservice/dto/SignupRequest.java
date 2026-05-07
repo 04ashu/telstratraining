@@ -2,13 +2,14 @@ package com.telstra.userservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-public class UserDTO {
+@NoArgsConstructor
+public class SignupRequest {
 
-    private Long id;
     private String name;
     private String email;
-    private String role;
+    private String password;
 }

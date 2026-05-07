@@ -18,7 +18,7 @@ public class UserService {
         User user = repository.findById(id)
                 .orElseThrow(()->new RuntimeException("User not found"));
 
-        return new UserDTO(user.getId(),user.getName(),user.getEmail());
+        return new UserDTO(user.getId(),user.getName(),user.getEmail(), user.getRole());
     }
 
     public UserDTO createUser(UserDTO userdto){
@@ -31,7 +31,8 @@ public class UserService {
         return new UserDTO(
                 savedUser.getId(),
                 savedUser.getName(),
-                savedUser.getEmail()
+                savedUser.getEmail(),
+                savedUser.getRole()
         );
     }
 
@@ -40,7 +41,8 @@ public class UserService {
                 .map(user->new UserDTO(
                         user.getId(),
                         user.getName(),
-                        user.getEmail()
+                        user.getEmail(),
+                        user.getRole()
                 )).toList();
     }
 }
