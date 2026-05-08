@@ -1,0 +1,10 @@
+Method              Purpose
+--------------------------------------------------------------
+runAsync            No result
+supplyAsync         Return result
+thenApply           Transform
+thenAccept          Consume
+thenCombine         Merge results
+allOf               Wait for all
+exceptionally       Handle errors
+join                Wait without checked exception
