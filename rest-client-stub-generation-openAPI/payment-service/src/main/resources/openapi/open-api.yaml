@@ -1,0 +1,49 @@
+openapi: 3.1.0
+info:
+  title: Order Service API
+  version: 1.0.0
+servers:
+  - description: Order Service APIs
+    url: http://localhost:8080
+paths:
+  /orders/{id}:
+    get:
+      operationId: getOrder
+      parameters:
+        - explode: false
+          in: path
+          name: id
+          required: true
+          schema:
+            format: int64
+            type: integer
+          style: simple
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+          description: OK
+      tags:
+        - order-controller
+      x-accepts:
+        - '*/*'
+components:
+  schemas:
+    OrderResponse:
+      type: object
+      example:
+        price: 6.027456183070403
+        id: 0
+        productName: productName
+      properties:
+        id:
+          format: int64
+          type: integer
+        productName:
+          type: string
+        price:
+          format: double
+          type: number
+
