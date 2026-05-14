@@ -31,4 +31,11 @@ class EmployeeRepositoryTest {
 
         assertTrue(result.isPresent());
     }
+
+    @Test
+    void shouldReturnEmptyWhenEmailNotFound(){
+        Optional<Employee> result =
+                employeeRepository.findByEmail("unknown@gmail.com");
+        assertTrue(result.isEmpty());
+    }
 }
